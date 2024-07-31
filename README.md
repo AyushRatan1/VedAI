@@ -25,7 +25,8 @@
 Clone the repository:
 
 ```shell
-git clone https://github.com/open-kf/rag-gpt.git && cd rag-gpt
+git clone https://github.com/AyushRatan1/VedAI.git
+cd VedAI
 ```
 
 ### Step 2: Configure variables of .env
