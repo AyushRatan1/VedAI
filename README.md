@@ -1,7 +1,13 @@
 <div align="center">
 <h1 align="center">VED AI</h1>
-
+Quickly launch an intelligent customer service system with Flask, LLM, RAG, including frontend, backend, and admin console.
+<br/>
+<a href="https://langchain-bot.open-sora.ai/" target="_blank"> Live Demo </a>
+<br/>
+<img style="display: block; margin: auto; width: 70%;" src="./doc/rag_overview.jpg">
 </div>
+
+
 
 ## Features
 - **Built-in LLM Support**: Support cloud-based LLMs and local LLMs.
@@ -284,4 +290,112 @@ python3 rag_gpt_app.py
 ```shell
 sh start.sh
 ```
+
+> [!NOTE]
+> - The service port for RAG-GPT is **`7000`**. During the first test, please try not to change the port so that you can quickly experience the entire product process.
+> - We recommend starting the RAG-GPT service using **`start.sh`** in multi-process mode for a smoother user experience.
+
+
+
+## Configure the admin console
+
+
+On the page **`http://your-server-ip:7000/open-kf-admin/#/`**, you can set the following configurations:
+- Choose the LLM base, currently only the `gpt-3.5-turbo` option is available, which will be gradually expanded.
+- Initial Messages
+- Suggested Messages
+- Message Placeholder
+- Profile Picture (upload a picture)
+- Display name
+- Chat icon (upload a picture)
+
+### Import your data
+
+#### Import websites
+
+After submitting the website URL, once the server retrieves the list of all web page URLs via crawling, you can select the web page URLs you need as the knowledge base (all selected by default). The initial `Status` is **`Recorded`**.
+
+<div align="center">
+<img style="display: block; margin: auto; width: 70%;" src="./doc/screenshot-12.jpg">
+</div>
+
+You can actively refresh the page **`http://your-server-ip:7000/open-kf-admin/#/source`** in your browser to get the progress of web page URL processing. After the content of the web page URL has been crawled, and the Embedding calculation and storage are completed, you can see the corresponding `Size` in the admin console, and the `Status` will also be updated to **`Trained`**.
+
+<div align="center">
+<img style="display: block; margin: auto; width: 70%;" src="./doc/screenshot-13.jpg">
+</div>
+
+Clicking on a webpage's URL reveals how many sub-pages the webpage is divided into, and the text size of each sub-page.
+
+<div align="center">
+<img style="display: block; margin: auto; width: 70%;" src="./doc/screenshot-10.jpg">
+</div>
+
+Clicking on a sub-page allows you to view its full text content. This will be very helpful for verifying the effects during the experience testing process.
+
+<div align="center">
+<img style="display: block; margin: auto; width: 70%;" src="./doc/screenshot-11.jpg">
+</div>
+
+#### Import isolated urls
+
+Collect the URLs of the required web pages. You can submit up to `10` web page URLs at a time, and these pages can be from different domains.
+
+<div align="center">
+<img style="display: block; margin: auto; width: 70%;" src="./doc/screenshot-14.jpg">
+</div>
+
+#### Import local files
+
+Upload the required local files. You can upload up to `10` files at a time, and each file cannot exceed `30MB`. The following file types are currently supported: `[".txt", ".md", ".pdf", ".epub", ".mobi", ".html", ".docx", ".pptx", ".xlsx", ".csv"]`.
+
+<div align="center">
+<img style="display: block; margin: auto; width: 70%;" src="./doc/screenshot-15.jpg">
+</div>
+
+
+### Test the chatbot
+
+After importing website data in the admin console, you can experience the chatbot service through the link **`http://your-server-ip:7000/open-kf-chatbot/`**.
+
+<div align="center">
+<img style="display: block; margin: auto; width: 70%;" src="./doc/screenshot-6.jpg">
+</div>
+
+### Embed on your website
+
+Through the admin console link **`http://your-server-ip:7000/open-kf-admin/#/embed`**, you can see the detailed tutorial for configuring the iframe in your website.
+
+<div align="center">
+<img style="display: block; margin: auto; width: 70%;" src="./doc/screenshot-7.jpg">
+</div>
+
+<div align="center">
+<br/>
+<a href="https://docs.openim.io/" target="_blank"> OpenIM chatbot </a>
+<br/>
+<img style="display: block; margin: auto; width: 70%;" src="./doc/screenshot-8.jpg">
+</div>
+
+### Dashboard of user's historical request
+
+Through the admin console link **`http://your-server-ip:7000/open-kf-admin/#/dashboard`**, you can view the historical request records of all users within a specified time range.
+
+<div align="center">
+<img style="display: block; margin: auto; width: 70%;" src="./doc/screenshot-9.jpg">
+</div>
+
+
+## The frontend of admin console and chatbot
+The RAG-GPT service integrates 2 frontend modules, and their source code information is as follows:
+
+### admin console
+> [Code Repository](https://github.com/open-kf/smart-qa-admin)
+
+An intuitive web-based admin interface for Smart QA Service, offering comprehensive control over content, configuration, and user interactions. Enables effortless management of the knowledge base, real-time monitoring of queries and feedback, and continuous improvement based on user insights.
+
+### chatbot
+> [Code Repository](https://github.com/open-kf/smart-qa-h5)
+
+An HTML5 interface for Smart QA Service designed for easy integration into websites via iframe, providing users direct access to a tailored knowledge base without leaving the site, enhancing functionality and immediate query resolution.
 
