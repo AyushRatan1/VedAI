@@ -24,7 +24,6 @@ Quickly launch an intelligent customer service system with Flask, LLM, RAG, incl
 </div>
 
 
-## Deploy the RAG-GPT Service
 
 ### Step 1: Download repository code
 
@@ -308,6 +307,13 @@ On the page **`http://your-server-ip:7000/open-kf-admin/#/`**, you can set the f
 - Profile Picture (upload a picture)
 - Display name
 - Chat icon (upload a picture)
+
+- <img width="900" alt="3ved" src="https://github.com/user-attachments/assets/1d5f1cdd-8a01-47a5-99a8-d678ef793cc2">
+
+<img width="1150" alt="2ved" src="https://github.com/user-attachments/assets/8640f2da-3b76-432b-999e-548af05a09b9">
+
+<img width="1208" alt="1" src="https://github.com/user-attachments/assets/1d236a66-8bd7-40c4-9b78-48a1ddbd56bd">
+
 
 ### Import your data
 
